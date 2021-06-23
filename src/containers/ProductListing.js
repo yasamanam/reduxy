@@ -3,17 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ProductComponent from "./ProductComponent";
 import { getAllProducts } from "../api/products";
-import { setProducts } from "../redux/actions/productActions.js";
+import { getProducts } from "../redux/actions/productActions.js";
 
 const ProductListing = () => {
   const products = useSelector((state) => state.allProducts);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getAllProducts().then((res) => {
-      console.log("res", res.data);
-      dispatch(setProducts(res.data));
-    });
+    dispatch(getProducts());
   }, []);
 
   // console.log(products);
