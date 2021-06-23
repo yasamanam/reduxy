@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import ProductComponent from "./ProductComponent";
+import { getAllProducts } from "../api/products";
 import { useSelector } from "react-redux";
 
 const ProductListing = () => {
   const products = useSelector((state) => state.allProducts);
 
-  console.log(products);
+  useEffect(() => {
+    getAllProducts().then((res) => console.log("res", res));
+  }, []);
+
+  // console.log(products);
   return (
     <div className="ui grid container">
-      <h1> Product Listing</h1>
+      <ProductComponent />
     </div>
   );
 };
