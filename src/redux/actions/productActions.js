@@ -1,5 +1,6 @@
+import { getAProductById, getAllProducts } from "../../api/products";
+
 import { ActionTypes } from "../constants/action-type.js";
-import { getAllProducts } from "../../api/products";
 
 export const setProducts = (products) => {
   return {
@@ -25,4 +26,10 @@ export const selectedProduct = (product) => {
 export const getProducts = () => async (dispatch, getState) => {
   let res = await getAllProducts();
   dispatch(setProducts(res.data));
+};
+
+export const getAProduct = (id) => async (dispatch) => {
+  let res = await getAProductById(id);
+  console.log(res.data);
+  dispatch(selectedProduct(res.data));
 };
