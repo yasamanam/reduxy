@@ -8,7 +8,12 @@ const Modal = ({ ...props }) => {
 
   if (modal) {
     return ReactDOM.createPortal(
-      <div className="modal">{modalContent}</div>,
+      <div onClick={() => handleModal()} className="modal__backdrop">
+        <div onClick={(e) => e.stopPropagation()} className="modal">
+          <button onClick={() => handleModal()}>CLOSE</button>
+          {modalContent}
+        </div>
+      </div>,
       document.querySelector("#modal-root")
     );
   } else {

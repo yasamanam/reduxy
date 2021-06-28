@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 
+import LogutModal from "../components/LogutModal";
 import { ModalContext } from "../context/modalContext";
 
 const Header = () => {
   const { modal, handleModal, modalContent } = useContext(ModalContext);
 
   const handleClick = () => {
-    handleModal("Log me out");
+    handleModal(<LogutModal />);
   };
 
   return (

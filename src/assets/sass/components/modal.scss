@@ -1,10 +1,18 @@
 .modal {
-  position: fixed;
   background-color: #f5f5f5;
   box-shadow: 3px 6px 12px gray;
   border-radius: 8px;
   height: 200px;
   width: 500px;
-  top: 50%;
-  right: 50%;
+
+  &__backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(black, 0.8px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
