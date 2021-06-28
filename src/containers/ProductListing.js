@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductComponent from "./ProductComponent";
 import { getAllProducts } from "../api/products";
 import { getProducts } from "../redux/actions/productActions.js";
+import { sum } from "../utils";
 
 const ProductListing = () => {
   const products = useSelector((state) => state.allProducts);
@@ -13,7 +14,6 @@ const ProductListing = () => {
     dispatch(getProducts());
   }, []);
 
-  // console.log(products);
   return (
     <div className="ui grid container">
       <ProductComponent />
