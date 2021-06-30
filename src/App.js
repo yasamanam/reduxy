@@ -2,6 +2,7 @@ import "./assets/sass/main.scss";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import Gallary from "./containers/Gallary";
 import Header from "./containers/Header";
 import { ModalProvider } from "./context/modalContext";
 import ProductDetail from "./containers/ProductDetail";
@@ -12,9 +13,10 @@ function App() {
     <div className="App">
       <ModalProvider>
         <Router>
-          <Header />
+          {/* <Header /> */}
           <Switch>
             <Route path="/" exact component={ProductListing} />
+            <Route path="/gallary" exact component={Gallary} />
             <Route path="/product/:productId" exact component={ProductDetail} />
             <Route>404 Not Found</Route>
           </Switch>
